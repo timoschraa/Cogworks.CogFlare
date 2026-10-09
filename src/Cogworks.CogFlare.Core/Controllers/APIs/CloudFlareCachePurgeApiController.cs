@@ -28,12 +28,21 @@ public class CloudFlareCachePurgeApiController(
             .KeyNodes.GetNodeIds()
             .Select(id => umbracoContentNodeService.GetContentUrlById(id));
 
-        var settings = cogFlareSettings with
+		var keyParentNodes = cogFlareSettings
+			.KeyParentNodes.GetNodeIds()
+			.Concat(umbracoContentNodeService.GetContentIdsByGuids(cogFlareSettings.KeyParentGuids.GetNodeGuids()))
+			.Distinct()
+			.Select(id => umbracoContentNodeService.GetContentUrlById(id));
+
+		var settings = cogFlareSettings with
         {
             KeyNodes = keyNodes.HasAny()
                 ? string.Join(SeparatorConstants.Comma, keyNodes)
                 : string.Empty,
-        };
+			KeyParentNodes = keyParentNodes.HasAny()
+				? string.Join(SeparatorConstants.Comma, keyNodes)
+				: string.Empty,
+		};
 
         return Ok(settings);
     }
