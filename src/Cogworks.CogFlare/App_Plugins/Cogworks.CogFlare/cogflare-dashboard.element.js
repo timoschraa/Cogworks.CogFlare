@@ -177,6 +177,10 @@ class CogflareDashboard extends UmbLitElement {
                                 <span>${this._settings.keyNodes}</span>
                             </div>
                             <div class="settings-row">
+                                <span class="settings-label">Key Parent Nodes:</span>
+                                <span>${this._settings.keyParentNodes}</span>
+                            </div>
+                            <div class="settings-row">
                                 <span class="settings-label">Endpoint:</span>
                                 <span>${this._settings.endpoint}</span>
                             </div>
@@ -191,6 +195,26 @@ class CogflareDashboard extends UmbLitElement {
                             <div class="settings-row">
                                 <span class="settings-label">Authentication Method:</span>
                                 <span>${this._settings.authenticationMethod}</span>
+                            </div>
+                            <div class="settings-row">
+                                <span class="settings-label">Enable Bidirectional Relations:</span>
+                                <span>${this._settings.enableBidirectionalRelations}</span>
+                            </div>
+                            <div class="settings-row">
+                                <span class="settings-label">Url Batch Size:</span>
+                                <span>${this._settings.urlBatchSize}</span>
+                            </div>
+                            <div class="settings-row">
+                                <span class="settings-label">Block Aliases:</span>
+                                <span>${this._settings.blockAliases}</span>
+                            </div>
+                            <div class="settings-row">
+                                <span class="settings-label">Cache Time:</span>
+                                <span>${this._settings.cacheTime}</span>
+                            </div>
+                            <div class="settings-row">
+                                <span class="settings-label">Cache Time Edge:</span>
+                                <span>${this._settings.cacheTimeEdge}</span>
                             </div>
                         </div>
                     `
